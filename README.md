@@ -22,6 +22,8 @@ The core file `eval.c` could have be written fully without using ANY include fil
 
 This repo is 100% my own work code.
 
+(C) Adam Kowalewski : ram.techen@gmail.com
+
 ## Building
 
 On Windows, simply launch MSVC developer console, type `build.bat` and you are in.
