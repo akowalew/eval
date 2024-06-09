@@ -10,7 +10,9 @@ These assumptions are making program RADICALLY simpler. There is simply just one
 
 If only there is an opening paren, it puts the current accumulator along with previous operator on stack and starts new calculation for this parenthesis. When closing paren is found, it pops back from stack accumulator, its operator, adds to the sum calculated inside the parenthesis and continues further.
 
-In contrast for example to full RPN parsers program has to run at least in two passes - first by generating tokens from infix to postfix form, and then calculating RPN postfix equation. This program uses only single pass. Much easier, less lines, much faster.
+_In contrast for example to full RPN parsers program has to run at least in two passes - first by generating tokens from infix to postfix form, and then calculating RPN postfix equation. This program uses only single pass. Much easier, less lines, much faster._
+
+Program handles prefix negation for numbers. Only requirement is that there CANNOT be any space between minus sign and number. Because of that the main parsing loop has aka two-state-machine, where in first state it searches for operand (and eventually open paren), and in second one searches for operator (and eventually close paren).
 
 As it is with calculators there is also range and overflow checking, both for operands like also for additions, subtractions and multiplications. For division there is check if operand is not zero.
 
@@ -33,3 +35,5 @@ It should build everything and run tests.
 When building tests will run automatically. You can do it by hand as well by launching `eval_test.exe`
 
 CLI application simply gets input via parameters. Try it out `eval.exe 1+2*3/4`
+
+![image](https://github.com/akowalew/eval/assets/11333571/15605d99-61e6-463e-85c2-f3f805b40ff3)
